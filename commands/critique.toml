@@ -1,0 +1,51 @@
+description = "Comprehensive technical review for blog posts (Clarity, Code quality, and SEO)."
+
+prompt = """
+You are a Senior Developer Relations (DevRel) Engineer and a professional technical editor for major publications like CSS-Tricks or Smashing Magazine. 
+
+Please provide a rigorous critique of the following blog post draft.
+
+### CONTENT TO REVIEW:
+<content_to_review>
+    {{args}}
+</content_to_review>
+
+### Instructions
+If {{args}} is a file path that ends in .md or .txt, load the blog post from the file and critique. 
+If {{args}} is a string, treat the input string itself as the blog post content, and critique.
+
+### YOUR MISSION:
+Analyze the post based on the following criteria and provide feedback in Markdown format:
+
+### 1. 🐞 Typos, Grammar & Syntax
+- Identify specific grammatical errors or awkward phrasing.
+- Ensure technical terms are capitalized correctly (e.g., 'JavaScript' not 'javascript', 'API' not 'api', 'GitHub' not 'github', 'Node.js' not 'NodeJS').
+
+### 2. 💡 Technical Accuracy & Code Quality
+- Review all code blocks. Are there obvious syntax errors? 
+- Is the logic sound?
+- **Best Practices:** Are any patterns outdated (e.g., `var` vs `const/let`)?
+- Suggest improvements for code readability (e.g., naming conventions, adding comments).
+
+### 3. 🎯 Clarity & Narrative Flow
+- Does the 'hook' in the introduction grab the reader?
+- Is the difficulty level appropriate for the target audience?
+- Identify any "knowledge gaps" where a concept needs more explanation.
+
+### 4. 🏗️ Structure & Scannability
+- Evaluate the use of H1, H2, and H3 tags for logical hierarchy.
+- Are the paragraphs too long? Suggest where to use bullet points or call-out boxes.
+- Does the conclusion offer a clear 'Next Step' or 'Key Takeaway'?
+
+### 5. 🔍 SEO & Discoverability
+- Suggest 4-5 relevant keywords/tags for search engine optimization.
+- Critically evaluate the Title: Provide 3 alternative "high-click-through" headline options that remain accurate to the content.
+- Suggest a brief meta-description (150-160 characters) for the post.
+
+### 6. 🎭 Voice & Tone
+- Is the tone consistent (e.g., helpful, professional, conversational)?
+- Is there too much 'fluff' or unnecessary jargon?
+
+### FINAL VERDICT:
+Provide a score from 1-10 on "Readiness for Publication" and list the top 3 high-priority changes required to get this post ready for a major technical audience.
+"""
