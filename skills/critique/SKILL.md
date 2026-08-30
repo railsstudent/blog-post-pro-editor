@@ -51,6 +51,18 @@ Analyze the draft systematically against the following six areas:
 
 - Ensure a consistent tone (professional, conversational, and helpful).
 - Identify and recommend removing unnecessary fluff, filler words, or excessive jargon.
+- **Voice Preservation (Minimal Rewrites):** When suggesting edits for phrasing, clarity, or grammar, preserve the author's original words, individual style, and vocabulary as much as possible. Never alter the core intended meaning or over-rewrite passages that are already clear.
+
+### 7. Content Length & Code-to-Text Balance
+
+- **Pacing & Fatigue:** Verify if the blog post has a good length (ideally 1,000–2,500 words or a 5–10 minute reading time) that does not cause reader fatigue.
+- **Code-to-Text Balance:** Check that code blocks occupy no more than 40% of the entire post (at least 60% should be explanation and prose).
+- **Snippets vs. Entire Classes:** Ensure the post does not dump entire classes or complete files. It should only include the specific methods or functions relevant to the immediate discussion.
+- **GitHub Link Alternatives:**
+  - If a GitHub repository link is already provided in the draft (e.g., in a resources or links section), reference it.
+  - If massive code blocks are pasted but no repository is linked, recommend that the author provide a GitHub URL using a placeholder (e.g., `[Insert your GitHub URL here]`) instead of pasting full files.
+  - If the post is generic, conceptual, or uses short, well-sized snippets, do not suggest or mention a GitHub link.
+  - **Never fabricate or hallucinate real-looking GitHub URLs.**
 
 ---
 
@@ -82,6 +94,9 @@ Deliver your critique using the following Markdown template:
 - **Meta-Description:** 
 
 ## 6. Voice & Tone
+[Your feedback here]
+
+## 7. Content Length & Code-to-Text Balance
 [Your feedback here]
 
 ## Final Verdict
