@@ -1,12 +1,28 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
 
 /**
  * Script to validate asset integrity and translation status.
- * Usage: ./check-links.js <source-en.md> <target-translated.md>
+ * Usage: node check-links.mjs <source-en.md> <target-translated.md>
  */
+
+async function validateConnectivity(urls) {
+  const results = await Promise.all(urls.map(async (url) => {
+    try {
+      let response = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(5000) });
+      if (!response.ok) response = await fetch(url, { method: 'GET', signal: AbortSignal.timeout(5000) });
+      return { url, ok: response.ok, status: response.status };
+    } catch (e) {
+      return { url, ok: false, status: 'Error/Timeout' };
+    }
+  }));
+
+  results.forEach(res => {
+    if (!res.ok) console.log(`  ❌ [${res.status}] ${res.url}`);
+  });
+}
 
 async function checkMarkdownLinks() {
   const sourcePath = process.argv[2];
@@ -14,7 +30,7 @@ async function checkMarkdownLinks() {
 
   if (!sourcePath || !targetPath) {
     console.error('Error: Please provide both source and target markdown files.');
-    console.log('Usage: ./check-links.js source-en.md target-es.md');
+    console.log('Usage: node check-links.mjs <source-en.md> <target-translated.md>');
     process.exit(1);
   }
 
@@ -100,20 +116,4 @@ async function checkMarkdownLinks() {
   }
 }
 
-async function validateConnectivity(urls) {
-  const results = await Promise.all(urls.map(async (url) => {
-    try {
-      let response = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(5000) });
-      if (!response.ok) response = await fetch(url, { method: 'GET', signal: AbortSignal.timeout(5000) });
-      return { url, ok: response.ok, status: response.status };
-    } catch (e) {
-      return { url, ok: false, status: 'Error/Timeout' };
-    }
-  }));
-
-  results.forEach(res => {
-    if (!res.ok) console.log(`  ❌ [${res.status}] ${res.url}`);
-  });
-}
-
-checkMarkdownLinks();
+await checkMarkdownLinks();
