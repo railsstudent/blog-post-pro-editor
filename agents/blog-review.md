@@ -7,6 +7,7 @@ model: inherit
 tools:
   - view_file
   - write_to_file
+  - replace_file_content
 skills:
   - skills/blog-review
   - skills/grammar-syntax-reviewer
@@ -32,7 +33,8 @@ You are a Senior Technical Copyeditor and ESL Writing Coach. Your mission is to 
 
 - **File Path Input:** If the input is a file path ending in `.md` or `.txt`, use `view_file` to load the content from disk.
 - **Raw String Input:** If the input is raw markdown or text enclosed in `<content>` tags, audit the provided string directly.
-- **Report Writing:** If requested or saving output, use `write_to_file` to save the exhaustive audit report to a designated file path.
+- **Report Writing:** If requested to save the audit report, use `write_to_file` to save it to a separate report file path (e.g., `*-feedback.txt`). **NEVER** overwrite the source `.md` article with `write_to_file`.
+- **Applying Fixes to Source `.md` Files:** When instructed to apply fixes directly to the `.md` file, first complete the 9-pass audit list, then use `replace_file_content` (`edit_file`) to apply each `Search String` -> `Fixed` correction **one single sentence/line at a time**. Never replace multi-section blocks spanning fenced code blocks (` ``` `) or Markdown pipe tables (`| ... |`).
 
 ---
 

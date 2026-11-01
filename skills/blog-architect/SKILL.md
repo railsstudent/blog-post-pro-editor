@@ -81,7 +81,7 @@ When the user fills in `<!-- PROMPT: ... -->` placeholders, answers follow-up qu
 
 1. **Output Only the Revision:** Do **NOT** dump the entire blog post on every turn. Output **only the revised section(s) or paragraph(s)** (with the immediate heading for context) to save reading time, conserve tokens, and keep attention focused on the changes.
 2. **Avoid Outer Markdown Wrappers on Nested Code:** Do not wrap multi-block responses containing fenced code blocks inside an outer ````markdown` fence, as nested fences can break chat rendering.
-3. **Full Draft Only on Request:** Only output the complete, consolidated Markdown document when generating the initial Phase 2 scaffold or when the user explicitly asks for the full merged post.
+3. **Save Full Drafts Directly to a `.md` File (Never Rely on Terminal Copy-Paste):** Terminal renderers convert Markdown pipe tables (`| ... |`) into box-drawing characters and strip ```` ```typescript ```` / ```` ```css ```` fences, which breaks `.md` previews and syntax highlighting if copied from the terminal. Whenever generating the Phase 2 scaffold or outputting the full merged draft, ask for or write directly to a `.md` file on disk so tables and fenced code blocks remain intact.
 
 ---
 
