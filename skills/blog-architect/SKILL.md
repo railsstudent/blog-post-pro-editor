@@ -75,6 +75,14 @@ Upon alignment, generate the complete starter `.md` document containing:
 4. **Code Block Placeholders:**
    - Pre-formatted code fences with correct language identifiers (`typescript`, `python`, `rust`, `go`, etc.) and placeholder comments indicating where snippets belong.
 
+### Iterative Revisions (Section-Only Output)
+
+When the user fills in `<!-- PROMPT: ... -->` placeholders, answers follow-up questions, or requests edits to the scaffold/draft:
+
+1. **Output Only the Revision:** Do **NOT** dump the entire blog post on every turn. Output **only the revised section(s) or paragraph(s)** (with the immediate heading for context) to save reading time, conserve tokens, and keep attention focused on the changes.
+2. **Avoid Outer Markdown Wrappers on Nested Code:** Do not wrap multi-block responses containing fenced code blocks inside an outer ````markdown` fence, as nested fences can break chat rendering.
+3. **Full Draft Only on Request:** Only output the complete, consolidated Markdown document when generating the initial Phase 2 scaffold or when the user explicitly asks for the full merged post.
+
 ---
 
 ## Adaptive Architecture Options
