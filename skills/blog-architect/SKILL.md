@@ -1,8 +1,8 @@
 ---
 name: "blog-architect"
-description: "Interactive technical blog ideator and scaffolding engine. Translates free-style concepts, local code, or GitHub repos into dynamic outlines, verified Mermaid/image architecture diagrams, and ready-to-write Markdown templates."
+description: "Interactive technical blog ideator and scaffolding engine. Translates free-style concepts, local code, or GitHub repos into dynamic outlines, verified Mermaid/image architecture diagrams, descriptive image placeholders, and ready-to-write Markdown templates."
 category: "Technical Writing / Content Architecture"
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Skill: Technical Blog Architect & Scaffolder
@@ -57,7 +57,7 @@ Before generating a full draft template, discuss and align on the proposed struc
    - **Mermaid Diagram:** (Flowchart, Sequence, or Component topology).
    - **Code Walkthrough:** Annotated code blocks with explicit focus lines.
    - **Comparison Table / Callout:** Contrasting libraries or approaches.
-   - **Image Placeholder:** Prompt for Vertex AI Studio, Figma, or Cloud Console screenshots.
+   - **Image Placeholder with Description:** Specific visual description (UI screenshot, profiler capture, benchmark chart, or Vertex AI Studio / Figma illustration) detailing what the image should depict and highlight.
 
 *Ask the user if they want to adjust the narrative arc or jump straight to scaffold generation.*
 
@@ -70,9 +70,19 @@ Upon alignment, generate the complete starter `.md` document containing:
 1. **Clear Header Hierarchy:** Logical `#` (Title), `##` (Main Sections), and `###` (Sub-sections).
 2. **Pre-populated Architecture Blocks:**
    - Ready-to-render, syntactically valid Mermaid diagrams or pre-formatted image placeholders.
-3. **Actionable Guided Comments (`<!-- PROMPT: ... -->`):**
+3. **Descriptive Image Placeholders:**
+   - Wherever an image, screenshot, or diagram is needed, insert a structured Markdown image placeholder with a detailed description:
+     ```markdown
+     ![<Concise Alt Text>](./assets/<suggested-filename>.png)
+     *Caption: <Brief reader-facing caption explaining the key takeaway>*
+     <!-- IMAGE PLACEHOLDER:
+     - Description: <What this image depicts, key UI elements, metrics, or annotations to highlight>
+     - Capture / Creation Guide: <Instructions for taking the screenshot/chart, or a generation prompt for Vertex AI Studio / Figma>
+     -->
+     ```
+4. **Actionable Guided Comments (`<!-- PROMPT: ... -->`):**
    - Place specific, high-leverage prompts inside each section so the author knows exactly what to write (e.g., *`<!-- PROMPT: Explain why the standard mutex caused starvation under 10k RPS in 2 paragraphs -->`*).
-4. **Code Block Placeholders:**
+5. **Code Block Placeholders:**
    - Pre-formatted code fences with correct language identifiers (`typescript`, `python`, `rust`, `go`, etc.) and placeholder comments indicating where snippets belong.
 
 ### Iterative Revisions (Section-Only Output)
