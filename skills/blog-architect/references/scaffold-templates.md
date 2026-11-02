@@ -20,6 +20,7 @@ Wherever a screenshot, UI capture, or diagram is needed, insert:
 Choose the best fit for the `## Architecture & Mental Model` section:
 
 ### Option A: Ready-to-Render Mermaid Diagram
+
 - Supported types: `flowchart TD`, `flowchart LR`, `sequenceDiagram`, `stateDiagram-v2`, `erDiagram`.
 - Always wrap node labels containing punctuation, parentheses, or brackets in double quotes (e.g., `id["API Gateway (Express)"]`).
 - Avoid raw HTML in node labels.
@@ -33,6 +34,7 @@ flowchart TD
 ```
 
 ### Option B: Vertex AI Studio / Image Generation Prompt
+
 ```markdown
 ![System Architecture](./assets/architecture-diagram.png)
 <!-- 
@@ -42,10 +44,21 @@ IMAGE GENERATION PROMPT (Vertex AI Studio / Image Tool):
 ```
 
 ### Option C: Conceptual Comparison Table / Mental Model
+
 | Pattern / Layer | Role & Responsibility | Key Trade-off |
 | :--- | :--- | :--- |
 | **Worker Pool** | Parallel CPU-bound processing | Higher memory footprint |
 | **Event Stream** | Decoupled asynchronous messaging | Eventual consistency |
 
 ### Option D: Omit
+
 Skip the architecture anchor for quick tips, opinion pieces, or short debugging logs.
+
+## 3. Interleaved Code Walkthroughs (Method-by-Method Slicing)
+
+When walking through a class, service, or module with multiple methods (or long methods):
+
+- **Never dump all method explanations at the top followed by one giant class block at the bottom**, which forces readers to scroll up and down to connect the prose to the code.
+- **Interleave explanation and code slices**:
+  1. Introduce class dependencies/signals followed by the class header & fields snippet.
+  2. For each method (`1. methodA()`, `2. methodB()`, etc.), place the bullet explanation immediately followed by that single method's code block.
