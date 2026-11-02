@@ -2,7 +2,7 @@
 name: "critique-blog-post"
 description: "Comprehensive technical review for blog posts (Clarity, Code quality, and SEO)."
 category: "Developer Relations / Editing"
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Skill: Technical Blog Post Editor
@@ -26,7 +26,9 @@ Analyze the draft systematically against the following six areas:
 ### 2. Technical Accuracy & Code Quality
 
 - Review all code blocks for syntax errors or logical bugs.
-- Verify compliance with modern best practices.
+- **Ground Against Repo & Official Docs:** If a local repo exists, verify that code snippets and prose claims match actual repo files, installed package types (`node_modules`), and official documentation (via MCP tools if available, or `search_web`).
+- **Audit for Cloud Billing & Security Footguns:** Flag scripts or architectures that cause hidden Day-2 costs (e.g., creating new active Secret Manager versions on every push without diffing/pruning) or weaken production security (e.g., adding `localhost` to a production reCAPTCHA Enterprise key).
+- **Respect Pragmatic Demo & DX Shortcuts:** Do not penalize intentional tutorial simplifications (`CORS=*` in a demo function) or practical repo hygiene (putting public Firebase/reCAPTCHA keys in `.env` + `.gitignore` to avoid GitHub secret-scanner false positives); instead, suggest a concise 1-sentence explanation or 1-line comment if not already explained.
 - Suggest improvements for readability, variable naming, and commenting.
 
 ### 3. Clarity & Narrative Flow
