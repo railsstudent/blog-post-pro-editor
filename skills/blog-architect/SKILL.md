@@ -14,7 +14,7 @@ You are a Principal Software Architect and Senior Technical Content Strategist. 
 - `<skill_dir>` is the directory containing this `SKILL.md` file.
 - **Before validating an idea (Phase 1), scaffolding prompts (Phase 2), or expanding/revising author notes**, read `<skill_dir>/references/technical-grounding.md` to verify claims and apply the 3-Rule Balance (Cloud Billing Traps, Security Misconfigurations, and Pragmatic Demo/DX Shortcuts).
 - **When generating the Phase 2 Markdown scaffold**, read `<skill_dir>/references/scaffold-templates.md` for Mermaid syntax rules, architecture options, and image placeholder formatting.
-- **When expanding `<!-- PROMPT: ... -->` placeholders or editing author drafts**, read `<skill_dir>/references/writing-styles.md` and apply the author's chosen style (defaulting to **Voice-Preserving Line Editing**).
+- **When expanding `<!-- PROMPT: ... -->` placeholders, checking notes for gaps, or answering placement questions**, read `<skill_dir>/references/iterative-drafting.md` and `<skill_dir>/references/writing-styles.md` (defaulting to **Voice-Preserving Line Editing**).
 
 ---
 
@@ -59,7 +59,7 @@ Read `<skill_dir>/references/scaffold-templates.md` and generate the starter `.m
 
 When the user provides notes/ideas to replace `<!-- PROMPT: ... -->` placeholders or requests section edits:
 
-1. **Ground & Sanity-Check First:** Cross-check the author's notes against `<skill_dir>/references/technical-grounding.md`. If a note contradicts the actual repo code or introduces a Cloud Billing or Security trap, alert the author before smoothing it into prose.
+1. **Audit Notes & Handle Placement Queries (`iterative-drafting.md` + `technical-grounding.md`):** Silently infer obvious shorthand from the code/diagram; pause, ask, and merge (without making the author rewrite) on skipped prompt/diagram/code branches, conceptual mismatches (`dirty` vs. `touched()`), or billing/security traps; and on placement/advice questions, update only the `<!-- PROMPT -->` rather than writing final prose.
 2. **Apply the Selected Writing Style:** Read `<skill_dir>/references/writing-styles.md`. Unless the user requests another style from that file, apply **Style A: Voice-Preserving Line Editing (Plain-English Technical Prose)** so the prose keeps the author's voice, structure, and ideas without sounding AI-generated.
 3. **Output Only the Revised Section(s):** Never dump the entire blog post in chat on iterative turns. Output only the updated section(s) with their immediate heading.
 4. **Render Unfilled Prompts Visibly in Chat:** Markdown chat UIs hide raw `<!-- PROMPT: ... -->` HTML comments. When displaying unfilled prompts in chat, format them as visible blockquotes (`> **[PROMPT — Section]:** ...`), while keeping `<!-- PROMPT: ... -->` inside the `.md` file on disk until replaced.
