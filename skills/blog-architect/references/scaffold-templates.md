@@ -62,3 +62,18 @@ When walking through a class, service, or module with multiple methods (or long 
 - **Interleave explanation and code slices**:
   1. Introduce class dependencies/signals followed by the class header & fields snippet.
   2. For each method (`1. methodA()`, `2. methodB()`, etc.), place the bullet explanation immediately followed by that single method's code block.
+
+## 4. High-Signal Code Excerpts & Prompt Focus (No Boilerplate Noise)
+
+Code blocks in technical blog posts are pedagogical excerpts, not raw file dumps. Regardless of language (TypeScript, Go, Python, Rust, Swift, Kotlin, etc.) or platform (Web, Backend, Mobile/iOS/Android, CLI), strip low-signal boilerplate from both code snippets and `<!-- PROMPT: ... -->` blocks:
+
+1. **Strip Module Headers & Framework Wiring Metadata:**
+   - Omit top-of-file `import`/`use`/`package` blocks unless a specific import (e.g., type-only vs. dynamic import) is central to the point.
+   - Omit routine annotations, decorators, macros, or registration metadata that merely link files or register a class/handler with the framework.
+2. **Strip Defensive Wrappers, Error-State Plumbing, and Logging:**
+   - Unless error handling or observability is the explicit subject of the section, strip routine `try/catch` blocks, repetitive error checks (`if err != nil`), UI error/loading state resets, and telemetry/logging calls so only the core domain or state-transition logic remains.
+3. **Strip Visual Layout, Styling Modifiers, and Static Display Data:**
+   - Do **not** dump full view files, stylesheets, layout containers, decorative styling modifiers (CSS classes, mobile UI layout chains/modifiers), or static display collections/copy. Excerpt only the interactive, reactive, or data-bound lines under discussion.
+4. **Focus Prompts on Architectural & Non-Obvious Mechanics Only:**
+   - Never instruct the author to explain every line of code.
+   - Highlight only pivotal engineering decisions, runtime/lifecycle constraints, concurrency or DI boundaries, and state flows.

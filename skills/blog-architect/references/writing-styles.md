@@ -15,6 +15,7 @@ Designed for engineers who want their article to sound authentically like *them*
 3. **Plain English + Technical Precision:** Use simple, direct everyday words paired with accurate technical terms ("simple English with a stroke of professionalism").
 4. **Zero AI Fluff:** Never inject marketing adjectives ("seamless", "powerful", "cutting-edge", "effortlessly") or generic LLM transitional filler ("In today's fast-paced world...", "It is crucial to remember that...").
 5. **The "One-Sentence Why" for Pragmatic Shortcuts:** When the author uses a practical DX workaround or demo simplification (e.g., loading public Firebase/reCAPTCHA keys from `.env` into a gitignored config file to prevent GitHub secret-scanner false alarms, or using `CORS=*` in a demo endpoint), state the practical reason in **one concise sentence or a 1-line code comment** so readers understand the trade-off without derailing the narrative. Conversely, if the author's draft contains a factual mismatch with the repo or a real cloud billing/security footgun, flag it explicitly rather than silently polishing it.
+6. **High-Signal Explanation Only (No Line-by-Line Code Narration):** Do not explain every line of a code block. Skip self-explanatory boilerplate (such as `try/catch` blocks, setting error signals, standard imports, static HTML/CSS classes, or static metadata arrays) and focus prose strictly on the important architectural mechanics and non-obvious implementation details.
 
 ### Example (Before vs. After)
 
