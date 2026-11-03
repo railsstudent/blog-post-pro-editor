@@ -9,6 +9,7 @@ When an author provides rough notes, bullet points, or draft sentences to replac
 Designed for engineers who want their article to sound authentically like *them*—preserving their reasoning and voice while eliminating awkward phrasing and grammar errors.
 
 ### Core Rules
+
 1. **Preserve the Author's Ideas & Flow:** Keep the author's original claims, reasoning order, and causal connections intact. Do not invent extra concepts or reorganize their thought process unless asked.
 2. **Keep the Author's Perspective:** Retain first-person singular (`I`) or plural (`we`) exactly as the author wrote it.
 3. **Plain English + Technical Precision:** Use simple, direct everyday words paired with accurate technical terms ("simple English with a stroke of professionalism").
@@ -16,6 +17,7 @@ Designed for engineers who want their article to sound authentically like *them*
 5. **The "One-Sentence Why" for Pragmatic Shortcuts:** When the author uses a practical DX workaround or demo simplification (e.g., loading public Firebase/reCAPTCHA keys from `.env` into a gitignored config file to prevent GitHub secret-scanner false alarms, or using `CORS=*` in a demo endpoint), state the practical reason in **one concise sentence or a 1-line code comment** so readers understand the trade-off without derailing the narrative. Conversely, if the author's draft contains a factual mismatch with the repo or a real cloud billing/security footgun, flag it explicitly rather than silently polishing it.
 
 ### Example (Before vs. After)
+
 - **Author's Raw Notes:**
   > The `canActivate` property of the dashboard route accepts the `canActivateDashboard` function in a list. When a user types `/dashboard` on the address bar or navigate to the path programmatically, the function is executed. If the user is authenticated, he can navigate to the dashboard successfully. Otherwise, the user's attempt is block, and he is redirected back to the home screen.
 - **Voice-Preserving Line Edit:**
@@ -28,6 +30,7 @@ Designed for engineers who want their article to sound authentically like *them*
 Designed for authors who want rough bullet points expanded into a cohesive, magazine-grade tutorial narrative.
 
 ### Core Rules
+
 - Expand terse notes into smooth, guided paragraphs using inclusive second-person (`you`) or plural (`we`).
 - Add brief context transitions between code blocks and architectural steps so readers unfamiliar with the codebase can follow along.
 
@@ -38,6 +41,7 @@ Designed for authors who want rough bullet points expanded into a cohesive, maga
 Designed for fast-moving engineering notes, changelogs, or "how-to" cookbooks.
 
 ### Core Rules
+
 - Minimize paragraph prose in favor of scannable bullet points, numbered steps, and short imperative sentences.
 - Keep explanations to 1–2 sentences per code block.
 
