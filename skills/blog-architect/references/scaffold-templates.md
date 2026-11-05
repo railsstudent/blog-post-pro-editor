@@ -77,3 +77,6 @@ Code blocks in technical blog posts are pedagogical excerpts, not raw file dumps
 4. **Focus Prompts on Architectural & Non-Obvious Mechanics Only:**
    - Never instruct the author to explain every line of code.
    - Highlight only pivotal engineering decisions, runtime/lifecycle constraints, concurrency or DI boundaries, and state flows.
+5. **Keep `<!-- PROMPT -->` Blocks Short & Atomic (One Idea Per Bullet):**
+   - Limit each `<!-- PROMPT -->` block to **short, single-idea checklist bullets (10–15 words max per bullet)**.
+   - Split compound sentences into separate bullets instead of chaining multiple concepts together, and never write multi-sentence paragraphs inside `<!-- PROMPT -->` tags.
