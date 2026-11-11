@@ -2,7 +2,7 @@
 name: "blog-architect"
 description: "Interactive technical blog ideator and scaffolding engine. Translates free-style concepts, local code, or GitHub repos into dynamic outlines, verified Mermaid/image architecture diagrams, descriptive image placeholders, and ready-to-write Markdown templates."
 category: "Technical Writing / Content Architecture"
-version: "1.3.0"
+version: "1.4.0"
 ---
 
 # Skill: Technical Blog Architect & Scaffolder
@@ -14,7 +14,7 @@ You are a Principal Software Architect and Senior Technical Content Strategist. 
 - `<skill_dir>` is the directory containing this `SKILL.md` file.
 - **Before validating an idea (Phase 1), scaffolding prompts (Phase 2), or expanding/revising author notes**, read `<skill_dir>/references/technical-grounding.md` to verify claims and apply the 3-Rule Balance (Cloud Billing Traps, Security Misconfigurations, and Pragmatic Demo/DX Shortcuts).
 - **When generating the Phase 2 Markdown scaffold**, read `<skill_dir>/references/scaffold-templates.md` for Mermaid syntax rules, architecture options, and image placeholder formatting.
-- **When expanding `<!-- PROMPT: ... -->` placeholders, checking notes for gaps, or answering placement questions**, read `<skill_dir>/references/iterative-drafting.md` and `<skill_dir>/references/writing-styles.md` (auto-selecting Style A, B, C, or D per section while preserving the author's voice).
+- **When expanding `<!-- PROMPT: ... -->` placeholders, checking notes for gaps, answering placement questions, or completing the final prompt**, read `<skill_dir>/references/iterative-drafting.md` and `<skill_dir>/references/writing-styles.md` (auto-selecting Style A, B, C, or D per section while preserving the author's voice).
 
 ---
 
@@ -34,10 +34,11 @@ You are a Principal Software Architect and Senior Technical Content Strategist. 
 
 Before generating a full template, align with the user on:
 
-1. **Narrative Arc & Hook:** Central problem, misconception, or breakthrough.
-2. **Fixed Anchors:** Introduction, Architecture & Mental Model (Mermaid, Image Prompt, Table, or Omit), and Takeaways/Resources.
-3. **Dynamic Middle Sections:** 2–4 tailored implementation or deep-dive sections.
-4. **Media & Code Recommendations:** Specify where Mermaid diagrams, annotated code blocks, tables, or screenshots belong.
+1. **High-CTR Title Candidates (3–4 Options):** Propose 3–4 view-catching, developer-focused headlines using proven hooks (e.g., *"Stop Doing X"*, *"The Hidden Traps of Y"*, counter-intuitive trade-offs, or concrete architectural wins) so the author can pick or blend a strong title upfront.
+2. **Narrative Arc & Hook:** Central problem, misconception, or breakthrough.
+3. **Fixed Anchors:** Introduction, Architecture & Mental Model (Mermaid, Image Prompt, Table, or Omit), and Takeaways/Resources.
+4. **Dynamic Middle Sections:** 2–4 tailored implementation or deep-dive sections.
+5. **Media & Code Recommendations:** Specify where Mermaid diagrams, annotated code blocks, tables, or screenshots belong.
 
 *Ask the user if they want to adjust the outline or proceed to Phase 2 scaffold generation.*
 
@@ -65,6 +66,7 @@ When the user provides notes/ideas to replace `<!-- PROMPT: ... -->` placeholder
 4. **Render Unfilled Prompts Visibly in Chat:** Markdown chat UIs hide raw `<!-- PROMPT: ... -->` HTML comments. When displaying unfilled prompts in chat, format them as visible blockquotes (`> **[PROMPT — Section]:** ...`), while keeping `<!-- PROMPT: ... -->` inside the `.md` file on disk until replaced.
 5. **Avoid Outer Markdown Wrappers:** Do not wrap multi-block chat responses containing fenced code blocks inside an outer ````markdown` fence.
 6. **Persist Directly to Disk:** Always write or edit the `.md` file directly on disk rather than relying on terminal copy-paste.
+7. **Final-Prompt Coherence Pass & Stage 3 Handoff:** As soon as the last `<!-- PROMPT: ... -->` placeholder in the file is replaced with prose, run the lightweight whole-post coherence scan in `<skill_dir>/references/iterative-drafting.md` (Section 3) to eliminate cross-section repetition, align terminology/numbering, optionally sharpen the title, and prompt a handoff to `critique-blog-post`.
 
 ---
 
